@@ -5,10 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
-  // StrictMode -> depreciate된 것이 있는지 확인
-  // <App /> -> render this App (return html tag)
   <React.StrictMode>
     <App />
   </React.StrictMode>
