@@ -9,46 +9,26 @@ class App extends Component{
     super()
 
     this.state = {
-      name : {firstname : 'An' , secondname : 'js'},
-      company : 'groom',
+      monsters: [
+        {
+          name: 'Linda',
+        },
+        {
+          name: 'Frank',
+        },
+        {
+          name: 'Jacky',
+        },
+      ],
     };
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            I'm {this.state.name.firstname} {this.state.name.secondname}, I work in {this.state.company}
-          </p>
-
-          <button onClick={() => {
-            this.setState({
-              name : {firstname : 'Bn' , secondname : 'Ks',
-            }}); // shallow merge | re-render it
-          }}>
-            change name
-          </button>
-
-          <button onClick={() => {
-            this.setState(
-              () => {
-                return {
-                  name : {firstname : 'Bn' , secondname : 'Ks'},
-                };
-              },
-              
-              //call back function
-              () => {
-                console.log(this.state);
-              }
-            );
-          }}>
-            change name 2        
-          </button>
-
-        </header>
+        {this.state.monsters.map=((monster) => {
+          return <h1> {monster.name} </h1>;
+        })}
       </div>
     );
   }
