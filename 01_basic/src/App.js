@@ -8,25 +8,23 @@ class App extends Component{
     super();
 
     this.state = {
-      monsters: [
-        {
-          name: 'Linda',
-          id: 'xmekkSKEI3'
-        },
-        {
-          name: 'Frank',
-          id: 'askkdmwe20DX'
-        },
-        {
-          name: 'Jacky',
-          id: '240fKJDJFkow'
-        },
-        {
-          name: 'Strike',
-          id: '29kfJSJE0122'
-        },
-      ],
+      monsters: [],
     };
+  }
+
+  componentDidMount() { //딱 한번만 실행, mounting
+    fetch('https://jsonplaceholder.typicode.com/users') //get API
+    .then((response) => response.json())
+    .then((users) => 
+      this.setState(
+        () => {
+          return {monsters: users}; //put data to monsters
+        },
+        () => {
+          console.log(this.state);
+        }
+      )
+    ) //json으로 변환된 것은 users로 들어감
   }
 
   render() {
@@ -34,7 +32,11 @@ class App extends Component{
       <div className="App">
         {this.state.monsters.map(
           (monster) => {
-            return (<h1 key={monster.id}>{monster.name}</h1>);
+            return (
+            <div key={monster.id}>
+              <h1>{monster.name}</h1>
+            </div>
+            );
           }
         )}
       </div>
