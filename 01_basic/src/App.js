@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import logo from './logo.svg';
+import CardList from './components/card-list/card-list.component'
 import './App.css';
 
 class App extends Component{
@@ -35,8 +35,8 @@ class App extends Component{
     this.setState(() => {
       return {searchField}; // searchField : searchField
       }
-    )
-  }
+    );
+  };
 
   // DOM을 update할 때마다 render함수를 call
   render() {
@@ -54,7 +54,7 @@ class App extends Component{
       <div className="App">
         <input className='search-box' type='search' placeholder='search monsters' onChange={onSearchChange}/> {/* event handler onChange | event : get event */}
      
-        {filteredMonsters.map(
+        {/* {filteredMonsters.map(
           (monster) => {
             return (
             <div key={monster.id}>
@@ -62,7 +62,8 @@ class App extends Component{
             </div>
             );
           }
-        )}
+        )} */}
+        <CardList />
       </div>
     );
   }
