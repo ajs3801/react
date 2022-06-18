@@ -56,11 +56,14 @@ class App extends Component{
     return (
       <div className="App">
         {/* give props (can pass anything)*/}
+        <h1 className='app-title'>Monsters Rolodex</h1>
+
         <SearchBox 
           className = 'monsters-search-box'
           onChangeHandler = {onSearchChange} 
           placeholder = 'search monsters'
         />
+        
         <CardList monsters = {filteredMonsters}/>
       </div>
     );
