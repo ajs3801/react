@@ -1,18 +1,20 @@
-import { Component } from 'react'
+import { Component } from 'react';
 
 class CardList extends Component {
-
+  //rebder call twice in first-execution
   render() {
+    // console.log(this.props); //access props
+    console.log(this.props.monsters);
+
+    const { monsters } = this.props;
+
     return (
       // This is all encapsulated in one parental component or parental HTML tag
       // All components must be just onc component
       <div>
-        <h1>Hello I'm the CardList Component</h1>
-        <div>
-          <p>text</p>
-        </div>
-
-        <div></div>
+        {monsters.map( (monster) => (
+          <h1 key={monster.id}>{monster.name}</h1>
+        ))}
       </div>
 
       //this might occur ERROR

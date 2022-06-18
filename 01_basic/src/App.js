@@ -1,6 +1,8 @@
 import { Component } from 'react';
 
+import SearchBox from './components/search-box/search-box.components';
 import CardList from './components/card-list/card-list.component'
+
 import './App.css';
 
 class App extends Component{
@@ -15,12 +17,13 @@ class App extends Component{
     };
   }
 
+  //[important!!] : react renders on mounts and re-renders whenever props change and set state gets called!
   // [Third Execution] : 외부 API를 받아옴
   componentDidMount() { //딱 한번만 실행, mounting
     fetch('https://jsonplaceholder.typicode.com/users') //get API
     .then((response) => response.json())
     .then((users) => 
-      this.setState(
+      this.setState( //whenever setState is called, re render
         () => {
           return {monsters: users}; //put data to monsters
         },
@@ -52,18 +55,13 @@ class App extends Component{
 
     return (
       <div className="App">
-        <input className='search-box' type='search' placeholder='search monsters' onChange={onSearchChange}/> {/* event handler onChange | event : get event */}
-     
-        {/* {filteredMonsters.map(
-          (monster) => {
-            return (
-            <div key={monster.id}>
-              <h1>{monster.name}</h1>
-            </div>
-            );
-          }
-        )} */}
-        <CardList />
+        {/* give props (can pass anything)*/}
+        <SearchBox 
+          className = 'search-box'
+          onChangeHandler = {onSearchChange} 
+          placeholder = 'search monsters'
+        />
+        <CardList monsters = {filteredMonsters}/>
       </div>
     );
   }
