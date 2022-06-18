@@ -57,7 +57,7 @@ class App extends Component{
       <div className="App">
         {/* give props (can pass anything)*/}
         <SearchBox 
-          className = 'search-box'
+          className = 'monsters-search-box'
           onChangeHandler = {onSearchChange} 
           placeholder = 'search monsters'
         />
