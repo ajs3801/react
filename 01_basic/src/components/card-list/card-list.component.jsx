@@ -5,9 +5,7 @@ import Monster from '../monster-box/monster.component';
 class CardList extends Component {
   //rebder call twice in first-execution
   render() {
-    // console.log(this.props); //access props
-    console.log(this.props.monsters);
-
+    
     const { monsters } = this.props;
 
     return (

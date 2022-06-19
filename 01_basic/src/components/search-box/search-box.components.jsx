@@ -4,11 +4,10 @@ import './search-box.styles.css';
 
 class SearchBox extends Component {
   render() {
-    console.log(this.props.className);
     return (
       <input 
           className= {`search-box ${this.props.className}`}
-          type='search' 
+          type='search'
           placeholder= {this.props.placeholder}
           onChange = {this.props.onChangeHandler}
       /> //event handler onChange | event : get event 
