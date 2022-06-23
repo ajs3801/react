@@ -1,26 +1,20 @@
-import { Component } from 'react';
 import './card-list.styles.css'
 import Monster from '../monster-box/monster.component';
 
-class CardList extends Component {
+const CardList = ({monsters}) => {
   //rebder call twice in first-execution
-  render() {
-    
-    const { monsters } = this.props;
+  // This is all encapsulated in one parental component or parental HTML tag
+  // All components must be just onc component
+  
+  return (
+    <div className='card-list'>
+      {monsters.map((monster) => {
+        console.log('call card-list');
 
-    return (
-      // This is all encapsulated in one parental component or parental HTML tag
-      // All components must be just onc component
-      <div className='card-list'>
-        {monsters.map((monster) => {
-
-          return (
-            <Monster monster= { monster }/>
-          )
-        })}
-      </div>
-    );
-  }
-}
+        return (<Monster monster= { monster }/>);
+      })}
+    </div>
+  );
+};
 
 export default CardList;
